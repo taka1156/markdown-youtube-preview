@@ -1,9 +1,7 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
-import { writeFile, mkdir, access } from "fs/promises";
-import { existsSync } from "fs"
-import { join, dirname } from "path";
-import { createCanvas, loadImage } from "canvas"
+import sharp from "sharp";
+import axios from "axios";
 const router = express.Router();
 import 'dotenv/config'
 
@@ -17,56 +15,53 @@ const HEADERS = {
     'cache-control': 'max-age=0, no-cache, no-store, must-revalidate',
 };
 
-const generate = async (videoId: string, playImage: string, imagePath: string, size: string) => {
-    const canvas = createCanvas(480, 360);
-    const ctx = canvas.getContext('2d')
+const generate = async (videoId: string, playImage: string): Promise<Buffer> => {
 
-    const backgroundImage = `https://img.youtube.com/vi/${videoId}/0.jpg`
+    const backgroundImageUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`
 
-    await loadImage(backgroundImage).then(async (image) => {
-        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    const bgImage = await axios.get(backgroundImageUrl, { responseType: 'arraybuffer' }).then(response => response.data);
 
-        await loadImage(playImage).then((playImage) => {
-            const playEgde = parseInt(size)
-            const x = (canvas.width - playEgde) / 2;
-            const y = (canvas.height - playEgde) / 2;
+    const backgroundImage = sharp(bgImage);
+    const overlayImage = sharp(playImage);
 
-            ctx.drawImage(playImage, x, y);
+    const backgroundMetadata = await backgroundImage.metadata();
+    const overlayMetadata = await overlayImage.metadata();
 
-            const buffer = canvas.toBuffer('image/png');
+    let offsetX: number = 0;
+    let offsetY: number = 0;
 
-            (async () => {
-                try {
-                    await writeFile(imagePath, buffer).then(() => {
+    if (backgroundMetadata.width != null && overlayMetadata.width != null && backgroundMetadata.height != null && overlayMetadata.height != null) {
+        offsetX = (backgroundMetadata.width - overlayMetadata.width) / 2;
+        offsetY = (backgroundMetadata.height - overlayMetadata.height) / 2;
+    }
 
-                    })
-                } catch (e) {
-                    console.error('Error saving canvas:', e);
-                }
-            })();
-        });
-    });
+    return backgroundImage
+        .composite([{
+            input: playImage,
+            left: offsetX,
+            top: offsetY
+        }])
+        .toBuffer();
 }
 
 router.get('/youtube/:videoId', asyncHandler(async (req, res) => {
     const { videoId } = req.params;
     const defaultConfig = { color: "black", size: "50" }
     const enableParams = req.query.color != null || req.query.size != null;
-    const { color, size } =  enableParams ? req.query : defaultConfig;
+    const { color, size } = enableParams ? req.query : defaultConfig;
     const playImage = `api/assets/play-${color}-${size}.png`;
 
-    const imagePath = join(__dirname, `../../storage/${videoId}-${color}-${size}.png`);
+    const data = await generate(videoId, playImage).
+        then((buffer) => {
+            return buffer;
+        }).
+        catch(e => {
+            console.log(e);
+            return null;
+        });
 
-    if (!existsSync(imagePath)) {
-        await generate(videoId, playImage, imagePath, size as string).then(() => {
-            res.set(HEADERS);
-            res.sendFile(imagePath);
-        })
-    } else {
-        res.set(HEADERS);
-        res.sendFile(imagePath);
-    }
-
+    res.set(HEADERS);
+    res.send(data);
 
 }));
 
