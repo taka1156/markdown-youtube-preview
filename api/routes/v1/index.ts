@@ -47,10 +47,18 @@ const generate = async (videoId: string, colorCode: string, size: string): Promi
         .toBuffer();
 }
 
-router.get('/youtube/:videoId', asyncHandler(async (req, res) => {
+router.get('/yt/:videoId', asyncHandler(async (req, res) => {
     const { videoId } = req.params;
-    const colorCode = (req.query.color || "") as string;
-    const size  = (req.query.size || "") as string;
+    let colorCode = (req.query.color || "") as string;
+    let size  = (req.query.size || "") as string;
+
+    if (colorCode === "" && req.query?.c != null && req.query?.c !== "") {
+        colorCode = req.query?.c as string;
+    }
+
+    if (size === "" && req.query?.s != null && req.query?.s !== "") {
+        size = req.query?.s as string;
+    }
 
     const data = await generate(videoId, colorCode, size).
         then((buffer) => {

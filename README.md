@@ -5,49 +5,57 @@
 
 https://www.tecking.org/youtube-markdown/#
 
+## 通常
+
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+
 ## カラーコードもしくは、色名指定
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=red&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=red&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=gold&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=gold&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=000000&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=000000&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
 
 ## サイズ変更
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=５0)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=５0)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=150)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=150)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=200)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=200)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=250)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?color=cornflowerblue&s=250)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
 
 ```markdown
+## 通常
+
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+
 ## カラーコードもしくは、色名指定
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=red&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=red&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=gold&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=gold&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=000000&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=000000&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
 
 ## サイズ変更
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=５0)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=５0)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=100)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=150)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=150)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=200)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?c=cornflowerblue&s=200)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 
-[![](https://mdyt.vercel.app/api/v1/youtube/l3J5Zv7Lduw/?color=cornflowerblue&size=250)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
+[![](https://mdyt.vercel.app/api/v1/yt/l3J5Zv7Lduw/?color=cornflowerblue&s=250)](https://www.youtube.com/watch?v=l3J5Zv7Lduw)
 ```
