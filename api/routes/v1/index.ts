@@ -1,5 +1,6 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
+import { playIcon } from "../../constans"
 import sharp from "sharp";
 import axios from "axios";
 const router = express.Router();
@@ -11,15 +12,17 @@ router.get('/', (req, res) => {
 });
 
 const HEADERS = {
-    'content-type': 'image/png',
+    'content-type': 'image/jpeg',
     'cache-control': 'max-age=0, no-cache, no-store, must-revalidate',
 };
 
-const generate = async (videoId: string, playImage: string): Promise<Buffer> => {
+const generate = async (videoId: string, colorCode: string, size: string): Promise<Buffer> => {
 
-    const backgroundImageUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`
+    const backgroundImageUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+    const playImageUrl = playIcon(colorCode as string, size as string);
 
     const bgImage = await axios.get(backgroundImageUrl, { responseType: 'arraybuffer' }).then(response => response.data);
+    const playImage = await axios.get(playImageUrl, { responseType: 'arraybuffer' }).then(response => response.data);
 
     const backgroundImage = sharp(bgImage);
     const overlayImage = sharp(playImage);
@@ -46,12 +49,10 @@ const generate = async (videoId: string, playImage: string): Promise<Buffer> => 
 
 router.get('/youtube/:videoId', asyncHandler(async (req, res) => {
     const { videoId } = req.params;
-    const defaultConfig = { color: "black", size: "50" }
-    const enableParams = req.query.color != null || req.query.size != null;
-    const { color, size } = enableParams ? req.query : defaultConfig;
-    const playImage = `api/assets/play-${color}-${size}.png`;
+    const colorCode = (req.query.color || "") as string;
+    const size  = (req.query.size || "") as string;
 
-    const data = await generate(videoId, playImage).
+    const data = await generate(videoId, colorCode, size).
         then((buffer) => {
             return buffer;
         }).
