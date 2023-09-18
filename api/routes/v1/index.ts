@@ -19,7 +19,7 @@ const HEADERS = {
 const generate = async (videoId: string, colorCode: string, size: string): Promise<Buffer> => {
 
     const backgroundImageUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
-    const playImageUrl = playIcon(colorCode as string, size as string);
+    const playImageUrl = playIcon(colorCode, size);
 
     const bgImage = await axios.get(backgroundImageUrl, { responseType: 'arraybuffer' }).then(response => response.data);
     const playImage = await axios.get(playImageUrl, { responseType: 'arraybuffer' }).then(response => response.data);
