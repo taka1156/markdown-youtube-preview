@@ -73,8 +73,8 @@ const generateOverlayImage = async (videoId: string, colorCode: string, size: st
 router.get('/yt/:videoId', asyncHandler(async (req, res) => {
     try {
         const { videoId } = req.params;
-        const colorCode = (req.query.color || req.query.c || "ff0000") as string;
-        const size = (req.query.size || req.query.s || "100") as string;
+        const colorCode = (req.query.color || req.query.c || "red") as string;
+        const size = (req.query.size || req.query.s || "130") as string;
 
         const data = await generateOverlayImage(videoId, colorCode, size);
         res.set(HEADERS);
