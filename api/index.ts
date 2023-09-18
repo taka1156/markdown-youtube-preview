@@ -3,6 +3,7 @@ import { router } from "./routes/v1/";
 const app = express();
 
 app.use('/api/v1/', router);
+app.use('/yt1/', router);
 
 // 応答するport
 const PORT = process.env.PORT || 3000;
